@@ -1,4 +1,6 @@
 
+import AccordionItem from './components/Accordion';
+import UseMemoExample from './hooks/UseMemoExample';
 import UseRefExample from './hooks/UseRefExample';
 function App() {
   return (
@@ -7,7 +9,10 @@ function App() {
         <h2>یادگیری و استفاده از هوک های ری اکت</h2>
       </div>
       <hr className='text-danger' />
-      <UseRefExample />
+      <div className="accordion" id="accordionExample">
+        <AccordionItem id={"ref"} title="استفاده از هوک useRef" children={<UseRefExample />} />
+        <AccordionItem id={"Memo"} title=" استفاده از هوک Memo" children={<UseMemoExample />} />
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Eyes from "./Eyes";
+import Eyes from "../components/Eyes";
 
 /**
  * کامپوننت UseRefExample
