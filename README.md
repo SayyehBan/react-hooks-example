@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# راهنمای React Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## مقدمه‌ای بر React Hooks
 
-## Available Scripts
+React Hooks توابعی هستند که به شما امکان استفاده از state و سایر ویژگی‌های React را در کامپوننت‌های تابعی می‌دهند. آنها در React 16.8 معرفی شدند تا بتوانید بدون نوشتن کامپوننت‌های کلاسی از state و سایر ویژگی‌های React استفاده کنید.
 
-In the project directory, you can run:
+## هوک‌های پایه
+
+### useState
+
+const [state, setState] = useState(initialState);
+
+- مدیریت state در کامپوننت‌های تابعی
+- مقدار فعلی state و تابعی برای به‌روزرسانی آن را برمی‌گرداند
+- می‌تواند چندین بار در یک کامپوننت استفاده شود
+
+### useEffect
+
+useEffect(() => {
+// کد side effects
+}, [dependencies]);
+
+- مدیریت side effects در کامپوننت‌های تابعی
+- جایگزینی برای متدهای چرخه حیات مانند componentDidMount و componentDidUpdate
+- آرایه وابستگی‌ها کنترل می‌کند که effect چه زمانی اجرا شود
+
+### useContext
+
+const value = useContext(MyContext);
+
+- اشتراک در React context
+- امکان استفاده از context در کامپوننت‌های تابعی
+
+## هوک‌های اضافی
+
+### useReducer
+
+const [state, dispatch] = useReducer(reducer, initialState);
+
+- جایگزینی برای useState برای منطق state پیچیده
+- مشابه الگوی Redux
+
+### useCallback
+
+const memoizedCallback = useCallback(
+() => {
+doSomething(a, b);
+},
+[a, b],
+);
+
+- حافظه‌سازی توابع برای جلوگیری از رندر مجدد غیرضروری
+- مفید برای بهینه‌سازی عملکرد
+
+### useMemo
+
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+- حافظه‌سازی مقادیر برای جلوگیری از محاسبات پرهزینه
+- کمک به بهینه‌سازی عملکرد
+
+### useRef
+
+const refContainer = useRef(initialValue);
+
+- حفظ مقادیر بین رندرها
+- معمولاً برای دسترسی به عناصر DOM استفاده می‌شود
+
+## هوک‌های سفارشی
+
+شما می‌توانید هوک‌های خود را برای استفاده مجدد از منطق stateful بین کامپوننت‌ها ایجاد کنید:
+
+function useCustomHook() {
+const [state, setState] = useState(initialState);
+// منطق خود را اینجا اضافه کنید
+return state;
+}
+
+## قوانین هوک‌ها
+
+1. فقط هوک‌ها را در سطح بالا فراخوانی کنید
+2. فقط هوک‌ها را از کامپوننت‌های تابعی React فراخوانی کنید
+3. هوک‌ها را داخل حلقه‌ها، شرط‌ها یا توابع تودرتو فراخوانی نکنید
+
+## اسکریپت‌های موجود
+
+در دایرکتوری پروژه، می‌توانید موارد زیر را اجرا کنید:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+برنامه را در حالت توسعه اجرا می‌کند.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+اجرای تست‌ها را شروع می‌کند.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+برنامه را برای محیط تولید می‌سازد.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## اطلاعات بیشتر
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [مستندات React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [مرجع API هوک‌ها](https://reactjs.org/docs/hooks-reference.html)
+- [قوانین هوک‌ها](https://reactjs.org/docs/hooks-rules.html)
