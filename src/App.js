@@ -1,6 +1,6 @@
 
 import AccordionItem from './components/Accordion';
-import { UseRefExample, UseMemoExample, UseCallBackExample } from './hooks';
+import { UseRefExample, UseMemoExample, UseCallBackExample, UseReducerExample } from './hooks';
 function App() {
   return (
     <div className="container">
@@ -12,6 +12,7 @@ function App() {
         <AccordionItem id={"ref"} title="استفاده از هوک useRef" children={<UseRefExample />} />
         <AccordionItem id={"Memo"} title=" استفاده از هوک Memo" children={<UseMemoExample />} />
         <AccordionItem id={"useCallback"} title="استفاده از هوک useCallback" children={<UseCallBackExample />} />
+        <AccordionItem id={"useReducer"} title="استفاده از هوک useReducer" children={<UseReducerExample />} />
       </div>
     </div>
   );
