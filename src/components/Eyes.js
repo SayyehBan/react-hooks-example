@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const Eyes = ({ style }) => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [, setMousePosition] = useState({ x: 0, y: 0 });
     const [eyePosition, setEyePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {

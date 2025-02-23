@@ -6,6 +6,7 @@ import {
   UseReducerExample,
   UseLayoutEffectExample,
   UseImperativeHandleExample,
+  UseDeferredValueExample,
 } from "./hooks";
 function App() {
   return (
@@ -51,7 +52,11 @@ function App() {
           children={<UseImperativeHandleExample />}
           collapsed={true}
         />
-      </div>    </div>
+        <AccordionItem id={"useDeferredValue"}
+          title="استفاده از هوک useDeferredValue"
+          children={<UseDeferredValueExample />} collapsed={true} />
+      </div>
+    </div>
   );
 }
 
