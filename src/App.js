@@ -5,6 +5,7 @@ import {
   UseCallBackExample,
   UseReducerExample,
   UseLayoutEffectExample,
+  UseImperativeHandleExample,
 } from "./hooks";
 function App() {
   return (
@@ -18,29 +19,39 @@ function App() {
           id={"ref"}
           title="استفاده از هوک useRef"
           children={<UseRefExample />}
+          collapsed={true}
         />
         <AccordionItem
           id={"Memo"}
           title=" استفاده از هوک Memo"
           children={<UseMemoExample />}
+          collapsed={true}
         />
         <AccordionItem
           id={"useCallback"}
           title="استفاده از هوک useCallback"
           children={<UseCallBackExample />}
+          collapsed={true}
         />
         <AccordionItem
           id={"useReducer"}
           title="استفاده از هوک useReducer"
           children={<UseReducerExample />}
+          collapsed={true}
         />
         <AccordionItem
           id={"useLayoutEffect"}
           title="استفاده از هوک useLayoutEffect"
           children={<UseLayoutEffectExample />}
+          collapsed={true}
         />
-      </div>
-    </div>
+        <AccordionItem
+          id={"useImperrativeHandle"}
+          title="استفاده از هوک useImperativeHandle"
+          children={<UseImperativeHandleExample />}
+          collapsed={true}
+        />
+      </div>    </div>
   );
 }
 
