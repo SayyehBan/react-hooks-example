@@ -6,3 +6,4 @@ export { default as UseLayoutEffectExample } from "./UseLayoutEffectExample";
 export { default as UseImperativeHandleExample } from "./UseImperativeHandleExample";
 export { default as UseDeferredValueExample } from "./UseDeferredValueExample";
 export { default as UseTransitionExample } from "./UseTransitionExample";
+export { default as UseCustomHook } from "./UseCustomHook";

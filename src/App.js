@@ -8,6 +8,7 @@ import {
   UseImperativeHandleExample,
   UseDeferredValueExample,
   UseTransitionExample,
+  UseCustomHook,
 } from "./hooks";
 function App() {
   return (
@@ -59,6 +60,9 @@ function App() {
         <AccordionItem id={"useTransition"}
           title="استفاده از هوک useTransition"
           children={<UseTransitionExample />} />
+        <AccordionItem id="CustomHook"
+          title="استفاده از هوک CustomHook"
+          children={<UseCustomHook />} />
       </div>
     </div>
   );
